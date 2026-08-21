@@ -1,0 +1,20 @@
+<h1><%= @note.title %></h1>
+
+<p><%= @note.body %></p>
+<%= link_to "Edit", edit_note_path(@note) %>
+<%= button_to "Delete", @note, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+
+<div id="tags">
+  <% if @note.tags.any? %>
+    <h2>Tags</h2>
+    <% @note.tags.all%>
+    <% @note.tags.each do |tag| %>
+      <div>
+        <%= tag.name %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No tags found</p>
+  <% end %>
+</div>
+

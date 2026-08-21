@@ -1,0 +1,15 @@
+<h1><%= @tag.name %></h1>
+
+
+<% if @notes.any? %>
+  <span>Notes with this tag:</span>
+  <div id="notes-with-tag">
+    <% @notes.each do |note| %>
+      <div>
+        <%= link_to note.title, note_path(note.id) %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>There be no notes with this tag :/</p>
+<% end%>
